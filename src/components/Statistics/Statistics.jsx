@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import { ListStats } from './Statistics.styled';
 export default class Statistics extends Component {
   render() {
     const { good, neutral, bad } = this.props;
     return (
       <div>
-        <ul>
+        <ListStats>
           <li>Good: {good}</li>
           <li>Neutral: {neutral}</li>
           <li>Bad: {bad}</li>
           <li>Total: {this.props.total()}</li>
           <li>Posiitive Feedback {this.props.positivePercentage()}%</li>
-        </ul>
+        </ListStats>
       </div>
     );
   }
