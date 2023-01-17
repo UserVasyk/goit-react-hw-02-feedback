@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { BoxOptions, Button } from './FeedbackOptions.styled';
 export default class FeedbackOptions extends Component {
   render() {
@@ -18,3 +19,6 @@ export default class FeedbackOptions extends Component {
     );
   }
 }
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+};

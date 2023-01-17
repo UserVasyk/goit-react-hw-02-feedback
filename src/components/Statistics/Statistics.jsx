@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ListStats } from './Statistics.styled';
 export default class Statistics extends Component {
   render() {
@@ -16,3 +17,10 @@ export default class Statistics extends Component {
     );
   }
 }
+Statistics.propTypes = {
+  total: PropTypes.func.isRequired,
+  positivePercentage: PropTypes.func.isRequired,
+  good: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+};
