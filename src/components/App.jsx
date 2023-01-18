@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Statistics from './Statistics/Statistics';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import Section from './Section/Section';
-import Notification from './Notification/Notification';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 export class App extends Component {
   state = {
     good: 0,
@@ -10,8 +10,7 @@ export class App extends Component {
     bad: 0,
   };
   countTotalFeedback = () => {
-    const gg = Object.values(this.state);
-    return gg.reduce((acc, value) => (acc += value), 0);
+    return Object.values(this.state).reduce((acc, value) => (acc += value), 0);
   };
   onLeaveFeedback = event => {
     const value = event.target.name;
@@ -35,7 +34,10 @@ export class App extends Component {
     return (
       <>
         <Section title="Please Leave Feedback">
-          <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={onLeaveFeedback}
+          />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() === 0 ? (
